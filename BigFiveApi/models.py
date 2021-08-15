@@ -109,6 +109,6 @@ class Survey(models.Model):
     testelapse = models.PositiveIntegerField(null=True)
     endelapse = models.PositiveIntegerField(null=True)
     IPC = models.PositiveIntegerField(null=True)
-    country = models.CharField(max_length=5, blank=True, null=True)
+    country = models.CharField(max_length=5, default="BO")
     lat_appx_lots_of_err = models.FloatField(null=True)
     long_appx_lots_of_err = models.FloatField(null=True)
