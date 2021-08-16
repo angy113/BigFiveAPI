@@ -6,7 +6,6 @@ from .serializers import SurveySerializer
 from .models import Survey
 
 import numpy as np
-import json
 
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -18,9 +17,7 @@ class SurveyViewSet(ModelViewSet):
     serializer_class = SurveySerializer
 
     def create(self, request, *args, **kwargs):
-
-        res = json.loads(request.data)
-        array1 = np.fromiter(res.values(), dtype=int)
+        array1 = np.fromiter(request.data.values(), dtype=int)
         arrayAnswers = array1[0:50] / 5
 
         def reduceTimes(t): return 60000 if t > 60000 else t
